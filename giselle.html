@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giselle</title>
+  <link rel="stylesheet" href="giselle.css" />
+  <style>
+    .audio-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #ff4081;
+      padding: 10px 15px;
+      border-radius: 8px;
+      backdrop-filter: blur(5px);
+      color: #ff80ab;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .audio-controls:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="acad.html">ACAD</a>
+      <a href="winter.html">Winter</a>
+      <a href="giselle.html" class="active">Giselle</a>
+      <a href="ningning.html">Ningning</a>
+      <a href="karina.html">Karina</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="giselle-profile">
+      <h1>GISELLE</h1>
+      <h2>Creative, Urban, Expressive</h2>
+      <p>Giselle punya vibe chill tapi edgy. Desainnya eksploratif, banyak menggabungkan elemen visual urban dan ekspresi bebas, cocok buat style yang lebih eksperimental.</p>
+    </section>
+
+    <section class="giselle-gallery">
+      <h3>Giselle’s Visual Playground</h3>
+      <div class="gallery-item">
+        <img src="giselle1.jpg" alt="Giselle Project 1">
+        <p>Giselle — Cool, Edgy, Effortlessly Chic</p>
+      </div>
+      <div class="gallery-item">
+        <img src="giselle2.jpg" alt="Giselle Project 2">
+        <p>Rap Queen with a Soulful Style</p>
+      </div>
+    </section>
+  </main>
+
+  <audio id="giselleAudio" loop>
+    <source src="dopamine-giselle.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <button class="audio-controls" id="toggleAudio">Play Music</button>
+
+  <script>
+    const audio = document.getElementById("giselleAudio");
+    const button = document.getElementById("toggleAudio");
+
+    let isPlaying = false;
+
+    button.addEventListener("click", () => {
+      if (isPlaying) {
+        audio.pause();
+        button.textContent = "Play Music";
+      } else {
+        audio.play();
+        button.textContent = "Stop Music";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>

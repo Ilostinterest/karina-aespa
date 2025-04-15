@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karina</title>
+  <link rel="stylesheet" href="karina.css" />
+  <style>
+    .audio-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      border-radius: 8px;
+      backdrop-filter: blur(5px);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .audio-controls:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="acad.html">ACAD</a>
+      <a href="winter.html">Winter</a>
+      <a href="giselle.html">Giselle</a>
+      <a href="ningning.html">Ningning</a>
+      <a href="karina.html" class="active">Karina</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="karina-profile">
+      <h1>KARINA</h1>
+      <h2>Elegant. Mysterious. Futuristic.</h2>
+      <p>
+        Karina, leader dari aespa, dikenal dengan aura yang cool namun anggun. Gaya desain yang mewakili dirinya berfokus pada bentuk tegas, siluet kuat, dan estetika futuristik yang memikat.
+      </p>
+    </section>
+
+    <section class="karina-gallery">
+      <h3>Visual Identity: Karina</h3>
+
+      <div class="gallery-item">
+        <img src="karina1.jpg" alt="Karina Project 1" />
+        <p>Queen of Precision and Elegance</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="karina2.jpg" alt="Karina Project 2" />
+        <p>Karisma Elegan di Balik Visual Futuristik</p>
+      </div>
+
+      <div class="gallery-item">
+        <img src="karina3.jpg" alt="Karina Project 3" />
+        <p>"Karina — Grace and Power Combined</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Backsound -->
+  <audio id="karinaAudio" loop>
+    <source src="menunggu-karina.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Button Play/Stop -->
+  <button class="audio-controls" id="toggleAudio">Play Music</button>
+
+  <script>
+    const audio = document.getElementById("karinaAudio");
+    const button = document.getElementById("toggleAudio");
+
+    let isPlaying = false;
+
+    button.addEventListener("click", () => {
+      if (isPlaying) {
+        audio.pause();
+        button.textContent = "Play Music";
+      } else {
+        audio.play();
+        button.textContent = "Stop Music";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>

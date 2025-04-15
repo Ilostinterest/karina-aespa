@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ningning</title>
+  <link rel="stylesheet" href="ningning.css" />
+  <style>
+    .audio-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 0, 0.1);
+      border: 1px solid #ffe600;
+      padding: 10px 15px;
+      border-radius: 8px;
+      backdrop-filter: blur(5px);
+      color: #ffe600;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .audio-controls:hover {
+      background: rgba(255, 255, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="acad.html">ACAD</a>
+      <a href="winter.html">Winter</a>
+      <a href="giselle.html">Giselle</a>
+      <a href="ningning.html" class="active">Ningning</a>
+      <a href="karina.html">Karina</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="ningning-profile">
+      <h1>NINGNING</h1>
+      <h2>Energetic, Bold, Vibrant</h2>
+      <p>Ningning adalah semangat dan warna. Desainnya mencerminkan ekspresi berani, warna cerah, dan pendekatan visual yang penuh impact.</p>
+    </section>
+
+    <section class="ningning-gallery">
+      <h3>Ningning’s Vibrant Showcase</h3>
+      <div class="gallery-item">
+        <img src="ningning1.jpg" alt="Ningning Project 1">
+        <p>Bright, Bold, and Unapologetically Herself</p>
+      </div>
+      <div class="gallery-item">
+        <img src="ningning2.jpg" alt="Ningning Project 2">
+        <p>Ningning — Power and Playfulness in One Frame</p>
+      </div>
+    </section>
+  </main>
+
+  <audio id="ningningAudio" loop>
+    <source src="bored-ningning.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <button class="audio-controls" id="toggleAudio">Play Music</button>
+
+  <script>
+    const audio = document.getElementById("ningningAudio");
+    const button = document.getElementById("toggleAudio");
+
+    let isPlaying = false;
+
+    button.addEventListener("click", () => {
+      if (isPlaying) {
+        audio.pause();
+        button.textContent = "Play Music";
+      } else {
+        audio.play();
+        button.textContent = "Stop Music";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>

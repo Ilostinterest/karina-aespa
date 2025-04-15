@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #ff6a00, #ee0979);
+    color: #fffbe6;
+  }
+  
+  header nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #ffedcc;
+    font-weight: bold;
+  }
+  
+  nav a.active {
+    color: #ffe600;
+  }
+  
+  .ningning-profile {
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  
+  .ningning-profile h1 {
+    font-size: 3rem;
+    color: #fff200;
+    text-shadow: 0 0 10px #ff0;
+  }
+  
+  .ningning-gallery {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .gallery-item {
+    margin-bottom: 2rem;
+  }
+  
+  .gallery-item img {
+    max-width: 90%;
+    border-radius: 10px;
+    border: 2px solid #ffe600;
+    box-shadow: 0 0 10px #ffe60088;
+  }
+  

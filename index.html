@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ALEXA - Designer</title>
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background: url('miaw.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Overlay gelap */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(8px);
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    header, main, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: black;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.2em;
+    }
+
+    h2 {
+      font-weight: 300;
+      font-style: italic;
+      color: #ffd1dc;
+    }
+
+    .skills {
+      text-align: left;
+      margin-top: 2em;
+    }
+
+    .skills ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skills li::before {
+      content: '✨ ';
+      color: #fbc02d;
+    }
+
+    .about, .favorites {
+      margin-top: 2em;
+    }
+
+    .favorites img {
+      width: 70px;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    .social-buttons {
+      margin-top: 20px;
+    }
+
+    .social-buttons a {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .facebook {
+      background-color: #3b5998;
+      color: white;
+    }
+
+    .instagram {
+      background-color: #e1306c;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>ABCD</strong></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="acad.html">ACAD</a>
+      <a href="winter.html">Winter</a>
+      <a href="giselle.html">Giselle</a>
+      <a href="ningning.html">Ningning</a>
+      <a href="karina.html">Karina</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>ALEXA</h1>
+    <h2>K-popers, Designer</h2>
+    <p><em>"Creativity takes courage." – Henri Matisse</em></p>
+    <img src="catur.jpg" alt="avatar lucu" style="width:200px; border-radius:10px; margin: 20px 0;" />
+
+    <div class="skills">
+      <h3>Keahlian</h3>
+      <ul>
+        <li>Desain Grafis</li>
+        <li>UI/UX Design</li>
+        <li>Front-End Web Development</li>
+        <li>Dewa Scroll Fesnuk</li>
+      </ul>
+    </div>
+
+    <div class="about">
+      <h3>Tentang Saya</h3>
+      <p>
+        Saya adalah seorang introvert yang nyaman mengekspresikan diri melalui karya kreatif. Dunia digital adalah kanvas saya, di mana saya bisa menciptakan, bermain, dan berimajinasi sebebasnya. Saya percaya kalau detail kecil bisa membuat perbedaan besar.
+      </p>
+    </div>
+
+    <div class="favorites">
+      <h3>Idol Favorit</h3>
+      <p>❤️ AESPA (Winter Miaw) | 🚫 Tolak RUU TNI 🔒</p>
+      <div>
+        <img src="sullyoon.jpg" alt="sullyoon" />
+        <img src="wonyoung.jpg" alt="wonyoung" />
+      </div>
+    </div>
+
+    <div class="social-buttons">
+      <a href="https://web.facebook.com/alexandro.bzahra" class="facebook" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/ephmrllv/" class="instagram" target="_blank">Instagram</a>
+    </div>
+  </main>
+</body>
+</html>

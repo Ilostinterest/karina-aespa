@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Winter</title>
+  <link rel="stylesheet" href="winter.css" />
+  <style>
+    .audio-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.1);
+      border: 1px solid #006064;
+      padding: 10px 15px;
+      border-radius: 8px;
+      backdrop-filter: blur(5px);
+      color: #006064;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .audio-controls:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="acad.html">ACAD</a>
+      <a href="winter.html" class="active">Winter</a>
+      <a href="giselle.html">Giselle</a>
+      <a href="ningning.html">Ningning</a>
+      <a href="karina.html">Karina</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="winter-profile">
+      <h1>WINTER</h1>
+      <h2>Cool, Quiet, Detail-Oriented</h2>
+      <p>Winter merepresentasikan ketenangan dan kejelasan. Gaya desainnya clean, fokus pada detail dan elemen sederhana yang kuat secara visual.</p>
+    </section>
+
+    <section class="winter-gallery">
+      <h3>Minimal Beauty: Winter's Touch</h3>
+      <div class="gallery-item">
+        <img src="winter1.jpg" alt="Winter Project 1">
+        <p>Beauty in Simplicity</p>
+      </div>
+      <div class="gallery-item">
+        <img src="winter2.jpg" alt="Winter Project 2">
+        <p>The Silent Storm — Calm Yet Powerful</p>
+      </div>
+    </section>
+  </main>
+
+  <audio id="winterAudio" loop>
+    <source src="spark-winter.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <button class="audio-controls" id="toggleAudio">Play Music</button>
+
+  <script>
+    const audio = document.getElementById("winterAudio");
+    const button = document.getElementById("toggleAudio");
+
+    let isPlaying = false;
+
+    button.addEventListener("click", () => {
+      if (isPlaying) {
+        audio.pause();
+        button.textContent = "Play Music";
+      } else {
+        audio.play();
+        button.textContent = "Stop Music";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>
