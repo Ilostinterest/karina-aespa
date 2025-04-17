@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sedang Mengetik</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('b.jpg') no-repeat center center/cover;
+      min-height: 100vh;
+    }
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      color: white;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+    .input-group input,
+    .input-group textarea {
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      border-radius: 10px;
+      border: none;
+    }
+    button {
+      padding: 0.8rem;
+      border: none;
+      background: #00aaff;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #0077cc;
+    }
+    .folder-list {
+      margin-top: 1.5rem;
+    }
+    .folder-item {
+      background: rgba(255,255,255,0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .folder-item:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .note-area {
+      margin-top: 1rem;
+      display: none;
+    }
+    .notes {
+      margin-top: 1rem;
+      background: rgba(255,255,255,0.05);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <h2>📁 Buat Folder Catatan</h2>
+      <div class="input-group">
+        <label>Nama Folder</label>
+        <input type="text" id="folderName" placeholder="Contoh: Ide, Diary...">
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="folderPassword" placeholder="Opsional">
+      </div>
+      <button onclick="createFolder()">Buat Folder</button>
+
+      <div class="folder-list" id="folderList"></div>
+
+      <div class="note-area" id="noteArea">
+        <h3>📝 Tambah Catatan</h3>
+        <textarea id="noteText" placeholder="Tulis catatan di sini..." rows="4" style="width: 100%; border-radius: 10px; padding: 1rem;"></textarea>
+        <button onclick="addNote()">Tambah Catatan</button>
+        <div class="notes" id="notesDisplay"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const folderList = document.getElementById('folderList');
+    const noteArea = document.getElementById('noteArea');
+    const noteText = document.getElementById('noteText');
+    const notesDisplay = document.getElementById('notesDisplay');
+    let currentFolder = '';
+
+    function createFolder() {
+      const name = document.getElementById('folderName').value.trim();
+      const password = document.getElementById('folderPassword').value;
+      if (!name) return alert('Nama folder harus diisi.');
+
+      const folders = JSON.parse(localStorage.getItem('folders') || '{}');
+      if (folders[name]) return alert('Folder sudah ada.');
+
+      folders[name] = { password, notes: [] };
+      localStorage.setItem('folders', JSON.stringify(folders));
+      document.getElementById('folderName').value = '';
+      document.getElementById('folderPassword').value = '';
+      loadFolders();
+    }
+
+    function loadFolders() {
+      folderList.innerHTML = '';
+      const folders = JSON.parse(localStorage.getItem('folders') || '{}');
+      Object.keys(folders).forEach(folder => {
+        const div = document.createElement('div');
+        div.className = 'folder-item';
+        div.innerText = folder;
+        div.onclick = () => openFolder(folder);
+        folderList.appendChild(div);
+      });
+    }
+
+    function openFolder(folder) {
+      const folders = JSON.parse(localStorage.getItem('folders') || '{}');
+      const pass = folders[folder].password;
+      if (pass) {
+        const input = prompt('Masukkan password untuk folder "' + folder + '":');
+        if (input !== pass) return alert('Password salah!');
+      }
+      currentFolder = folder;
+      noteArea.style.display = 'block';
+      displayNotes();
+    }
+
+    function addNote() {
+      const text = noteText.value.trim();
+      if (!text) return;
+      const folders = JSON.parse(localStorage.getItem('folders') || '{}');
+      folders[currentFolder].notes.push(text);
+      localStorage.setItem('folders', JSON.stringify(folders));
+      noteText.value = '';
+      displayNotes();
+    }
+
+    function displayNotes() {
+      const folders = JSON.parse(localStorage.getItem('folders') || '{}');
+      const notes = folders[currentFolder].notes;
+      notesDisplay.innerHTML = '';
+      notes.forEach((note, idx) => {
+        const p = document.createElement('p');
+        p.innerText = `Catatan ${idx + 1}: ${note}`;
+        notesDisplay.appendChild(p);
+      });
+    }
+
+    window.onload = loadFolders;
+  </script>
+</body>
+</html>
